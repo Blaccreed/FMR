@@ -1,6 +1,6 @@
-# fmr
+# Fais moi Rire 
 
-A new Flutter project.
+A new Flutter project where you challenge your friend with...Jokes !
 
 ## Getting Started
 
