@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fmr/view/home.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:fmr/view/Choix_Themes.dart';
+
 
 Future<void> main() async {
 
@@ -21,10 +21,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: home(),
+        body: Choix_Themes(),
       ),
     );
   }

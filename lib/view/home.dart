@@ -14,7 +14,7 @@ class _homeState extends State<home> {
     return Column(
       children: [
         Card(
-          child: ,
+          child: Text('Hello World'),
         )
       ],
     );
