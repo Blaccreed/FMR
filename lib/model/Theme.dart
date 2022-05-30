@@ -16,20 +16,7 @@ class Theme {
   }
 
   // ignore: non_constant_identifier_names
-  static  Future<List<Theme>>  get themeFMR async {
-    //Future<List<Theme>> _ThemeList;
-    SupabaseClient client = SupabaseHandler().ConnexionDB;
-    final selectResponse = await client
-                                 .from('theme')
-                                 .stream(['id'])
-                                 .order('libelle')
-                                 .execute()
-                                 .listen((snapshot) {
-                                       snapshot.toList();
-                                       print(snapshot);
-                                    });
 
-  }
 
 
 }
