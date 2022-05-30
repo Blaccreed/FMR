@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fmr/view/home.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
 
   runApp(const MyApp());
+  Theme theme;
 
 }
 

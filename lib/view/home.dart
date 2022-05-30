@@ -13,9 +13,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Card(
-          child: ,
-        )
+
       ],
     );
   }
