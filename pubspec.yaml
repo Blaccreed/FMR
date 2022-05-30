@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   audioplayer: ^0.8.1
+  audioplayers: ^0.20.1
   flutter:
     sdk: flutter
 
