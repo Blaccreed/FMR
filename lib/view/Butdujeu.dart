@@ -11,6 +11,8 @@ class Butdujeu extends StatelessWidget {
 
     return Container(
 
+
+
       child: Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -35,22 +37,32 @@ class Butdujeu extends StatelessWidget {
           },
           )
           ],
+
       ),
 
 
 
-
-
-
         body: Center(
-          child:  Container(
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              color: Colors.blue,
-            ),
-          )
-        )
+          //SizedBox Widget
+          child: SizedBox(
+            width: 700.0,
+            height: 400.0,
+            child: Card(
+              color: Colors.cyan,
+              child: Center(
+                child: Text(
+                  'Regle du jeu',
+                  style: TextStyle(color: Colors.white),
+                ), //Text
+              ), //Center
+            ), //Card
+          ), //SizedBox
+        ),
+
+
+
+
+
 
 
       ),
@@ -58,5 +70,10 @@ class Butdujeu extends StatelessWidget {
 
 
     );
+
+
   }
+
+
+
 }

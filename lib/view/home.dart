@@ -14,7 +14,12 @@ class _homeState extends State<home> {
     return Column(
       children: [
         Card(
-          child: ,
+          child: Text(
+            'Hello,! How are you?',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         )
       ],
     );
