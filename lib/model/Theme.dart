@@ -17,20 +17,20 @@ class Theme {
 
 
   // ignore: non_constant_identifier_names
-    static void  get  theme  async {
-      //Future<List<Theme>> _ThemeList;
-      SupabaseClient client = SupabaseHandler().ConnexionDB;
-      final response = await client
-          .from('theme')
-          .select('id')
-          .order('libelle')
-          .execute();
+  static Future<List<String>>  getAllThemes() async {
+    SupabaseClient client = SupabaseHandler.getConnection();
+    List<String> themes = [];
+    final query = await client
+        .from('themes')
+        .select('*')
+        .execute();
 
-      final data = response.data;
-
-      if(data != null){
-         Theme t1 = Theme(id: data['id'], libelle: data['libelle']);
-      }
+    for(var v in query.data ?? [])
+    {
+      print(themes);
+      themes.add(v);
     }
+    return themes;
+  }
 
 }

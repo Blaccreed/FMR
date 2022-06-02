@@ -8,7 +8,7 @@ class SupabaseHandler {
 
 
 
-   SupabaseClient get ConnexionDB {
+   static SupabaseClient getConnection() {
     final client = SupabaseClient(supabaseUrl, supabaseKey);
     return client;
   }

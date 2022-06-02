@@ -12,14 +12,19 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Card(
-          child: Text(
-            'Hello,! How are you?',
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/flogo2.png'),
+            Image.asset('assets/mlogo.png'),
+            Image.asset('assets/rlogo.png'),
+          ],
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text("Jouer !"),
         )
       ],
     );

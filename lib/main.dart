@@ -3,6 +3,7 @@ import 'package:fmr/view/Butdujeu.dart';
 import 'package:fmr/view/Choix_Themes.dart';
 import 'package:fmr/view/home.dart';
 import 'package:fmr/view/tableau_score.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -24,10 +25,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return   MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: tableau_score(),
+        backgroundColor: HexColor("#0000ff"),
+        body: home(),
       ),
     );
   }
