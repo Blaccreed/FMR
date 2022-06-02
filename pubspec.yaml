@@ -26,7 +26,10 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+
 dependencies:
+
+
   audioplayer: ^0.8.1
   audioplayers: ^0.20.1
   flutter:

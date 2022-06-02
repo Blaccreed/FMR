@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fmr/view/Butdujeu.dart';
 import 'package:fmr/view/Choix_Themes.dart';
 import 'package:fmr/view/home.dart';
+import 'package:fmr/view/tableau_score.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Butdujeu(),
+        body: tableau_score(),
       ),
     );
   }

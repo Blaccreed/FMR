@@ -1,33 +1,138 @@
 import 'package:flutter/material.dart';
 
+
+
+
+
+
 class Choix_Themes extends StatelessWidget {
   Choix_Themes({Key? key}) : super(key: key);
 
-  final List<Map> myProducts =
-  List.generate(9, (index) => {"id": index, "name": "themes $index"})
-      .toList();
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
 
-        title:  Text('Choix du themes'),
+    return Scaffold(
+
+      appBar: AppBar(
+        centerTitle: true,
+        title:  Text('Choix des themes', textAlign: TextAlign.center),
       ),
-      body: Container(
-        constraints: BoxConstraints.expand(
-          height: Theme.of(context).textTheme.headline4!.fontSize! * 1.1 + 200.0,
-        ),
-        padding: const EdgeInsets.all(0.0),
-        color: Colors.blue[600],
-        alignment: Alignment.center,
-        transform: Matrix4.rotationZ(0.0),
-        child: Text('Hello World',
-            style: Theme.of(context)
-                .textTheme
-                .headline4!
-                .copyWith(color: Colors.white)),
-      )
+
+      floatingActionButton: FloatingActionButton.extended(
+
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        label: const Text('Retour'),
+
+
+        icon: const Icon(Icons.arrow_circle_left_rounded,color: Colors.white,),
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(     //All elements are wrapped
+        children: [     //in this column
+          SizedBox(
+            height: 15,
+          ),
+
+          Row(
+            children: [
+            ],
+          ),
+            SizedBox(
+              height: 100,
+            ),
+
+
+          Column(
+            children: [
+              Card(
+
+                color: Colors.blue,
+
+                margin: EdgeInsets.all(10),
+
+                elevation: 8,
+                child: Container(
+
+                  padding: EdgeInsets.all(25),
+
+                  child: Text(
+
+                    'blague',
+
+                    style: TextStyle(color: Colors.white),
+
+                  ),
+
+                ),
+
+              ),
+
+              SizedBox(
+                width: 4,
+              ),
+
+              Card(
+                color: Colors.blue,
+                margin: EdgeInsets.all(10),
+                elevation: 8,
+                child: Container(
+                  padding: EdgeInsets.all(25),
+                  child: Text(
+                    'blague',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+
+              Card(
+                color: Colors.blue,
+                margin: EdgeInsets.all(10),
+                elevation: 8,
+                child: Container(
+                  padding: EdgeInsets.all(25),
+                  child: Text(
+                    'blague',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+              Card(
+                color: Colors.blue,
+                margin: EdgeInsets.all(10),
+                elevation: 8,
+                child: Container(
+
+                  padding: EdgeInsets.all(25),
+                  child: Text(
+                    'blague',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Respond to button press
+                },
+                child: Text('Démarer'),
+
+              )
+
+            ],
+          )
+
+
+
+        ],
+      ),
+
     );
   }
 }
