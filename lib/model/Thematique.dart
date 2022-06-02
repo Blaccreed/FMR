@@ -1,11 +1,11 @@
 import 'package:fmr/model/SupabaseHandler.dart';
 import 'package:supabase/supabase.dart';
 
-class Theme {
+class Thematique {
   int id;
   String libelle;
 
-  Theme({required this.id, required this.libelle});
+  Thematique({required this.id, required this.libelle});
 
   int get idTheme {
     return id;
@@ -21,15 +21,16 @@ class Theme {
     SupabaseClient client = SupabaseHandler.getConnection();
     List<String> themes = [];
     final query = await client
-        .from('themes')
-        .select('*')
+        .from('theme')
+        .select('libelle')
         .execute();
 
-    for(var v in query.data ?? [])
-    {
-      print(themes);
-      themes.add(v);
-    }
+    var resultat = query.data;
+    for(var v in resultat)
+      {
+        themes.add(v['libelle']);
+      }
+    print(themes);
     return themes;
   }
 

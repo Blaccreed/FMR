@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -22,9 +23,20 @@ class _homeState extends State<home> {
             Image.asset('assets/rlogo.png'),
           ],
         ),
+        const SizedBox(
+          height: 50,
+        ),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(primary: HexColor("#ff8c01")),
           onPressed: () {},
           child: Text("Jouer !"),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text("Règles"),
         )
       ],
     );

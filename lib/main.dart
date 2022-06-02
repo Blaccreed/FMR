@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fmr/view/Butdujeu.dart';
-import 'package:fmr/view/Choix_Themes.dart';
+import 'package:fmr/view/ThemeChoice.dart';
 import 'package:fmr/view/home.dart';
 import 'package:fmr/view/tableau_score.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: HexColor("#0000ff"),
-        body: home(),
+        body: ThemeChoice(),
       ),
     );
   }
