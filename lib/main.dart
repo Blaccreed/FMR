@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: HexColor("#0000ff"),
-        body: ThemeChoice(),
+        body: home(),
       ),
     );
   }

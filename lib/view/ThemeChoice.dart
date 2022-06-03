@@ -13,14 +13,34 @@ class _ThemeChoiceState extends State<ThemeChoice> {
   @override
   Widget build(BuildContext context) {
     Future themes = Thematique.getAllThemes();
+    List<Widget> _Icon = [
+      const Icon(Icons.favorite, color: Colors.red),
+      const Icon(Icons.pets, color: Colors.brown),
+       Icon(
+        Icons.sentiment_very_satisfied,
+        color: HexColor("#ff8c01"),
+      ),
+      const Icon(
+        Icons.computer,
+        color: Colors.black,
+      ),
+    ];
+
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 60,),
-          Container(
-            width: 100,
+          const SizedBox(
+            height: 60,
+          ),
+
+          Text("Choississez votre thème !"),
+
+          SizedBox(height: 15,),
+
+          SizedBox(
+            width: 250,
             child: FutureBuilder(
               future: themes,
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -29,13 +49,24 @@ class _ThemeChoiceState extends State<ThemeChoice> {
                   return ListView.separated(
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-
-                      separatorBuilder: (BuildContext context, int index) => const Divider(),
-                      itemCount: 4,
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(),
+                    itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
-                        print(snapshot.data.length);
-                        return Text(snapshot.data[index].toString());
-                    },);
+                      return Card(
+                        child: CheckboxListTile(
+                          title: Text(snapshot.data[index]),
+                          value: false,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              value = value!;
+                            });
+                          },
+                          secondary: _Icon[index],
+                        ),
+                      );
+                    },
+                  );
                 }
                 return CircularProgressIndicator(
                   color: HexColor("#ff8c01"),
