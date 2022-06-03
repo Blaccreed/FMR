@@ -15,20 +15,31 @@ class _ThemeChoiceState extends State<ThemeChoice> {
     Future themes = Thematique.getAllThemes();
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          FutureBuilder(
-            future: themes,
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              if (snapshot.hasData &&
-                  snapshot.connectionState == ConnectionState.done) {
-                return Text(snapshot.data[0]);
-              }
+          SizedBox(height: 60,),
+          Container(
+            child: FutureBuilder(
+              future: themes,
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (snapshot.hasData &&
+                    snapshot.connectionState == ConnectionState.done) {
+                  return ListView.separated(
+                    scrollDirection: Axis.vertical,
 
-              return CircularProgressIndicator(
-                color: HexColor("#ff8c01"),
-              );
-            },
+                      separatorBuilder: (BuildContext context, int index) => const Divider(),
+                      itemCount: 3,
+                    itemBuilder: (BuildContext context, int index) {
+                        print(snapshot.data.length);
+                        return Text(snapshot.data[index].toString());
+                    },);
+                }
+                return CircularProgressIndicator(
+                  color: HexColor("#ff8c01"),
+                );
+              },
+            ),
           ),
         ],
       ),
