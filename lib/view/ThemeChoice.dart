@@ -20,16 +20,18 @@ class _ThemeChoiceState extends State<ThemeChoice> {
         children: [
           SizedBox(height: 60,),
           Container(
+            width: 100,
             child: FutureBuilder(
               future: themes,
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.hasData &&
                     snapshot.connectionState == ConnectionState.done) {
                   return ListView.separated(
+                    shrinkWrap: true,
                     scrollDirection: Axis.vertical,
 
                       separatorBuilder: (BuildContext context, int index) => const Divider(),
-                      itemCount: 3,
+                      itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
                         print(snapshot.data.length);
                         return Text(snapshot.data[index].toString());
