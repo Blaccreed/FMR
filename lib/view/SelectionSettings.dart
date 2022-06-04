@@ -26,42 +26,55 @@ class _SelectionSettingsState extends State<SelectionSettings> {
 
     List<Widget> _Icon = [
       const Icon(Icons.favorite, color: Colors.red),
+
       const Icon(Icons.pets, color: Colors.brown),
+
       Icon(
         Icons.sentiment_very_satisfied,
         color: HexColor("#ff8c01"),
       ),
+
       const Icon(
         Icons.computer,
         color: Colors.black,
       ),
     ];
 
-    return Center(
-      child: SizedBox(
-        width: 250,
-        child: ListView.separated(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          separatorBuilder: (BuildContext context, int index) =>
-          const Divider(),
-          itemCount: themes.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: CheckboxListTile(
-                title: Text(themes[index]),
-                value: true,
-                onChanged: (value) {
-                  setState(() {
-                    _isChecked[index] = false;
-                  });
-                },
-                secondary: _Icon[index],
-              ),
-            );
-          },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Choississez vos paramètres"),
+        SizedBox(height: 20,),
+        Center(
+
+          child: SizedBox(
+            width: 250,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              separatorBuilder: (BuildContext context, int index) =>
+              const Divider(),
+              itemCount: themes.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: CheckboxListTile(
+                    title: Text(themes[index]),
+                    value: _isChecked[index],
+                    checkColor: HexColor("#ff8c01"),
+
+                    onChanged: (value) {
+                      setState(() {
+                        _isChecked[index] = value!;
+                      });
+                    },
+                    secondary: _Icon[index],
+                  ),
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );;
   }
 }
