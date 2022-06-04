@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 class Team{
 
   String name;
-  Image avatar;
+  late Image avatar;
   bool win;
   int score;
 
-  Team(this.name, this.avatar, this.score, this.win){
+  Team(this.name, this.score, this.win){
     score = 0;
     win = false;
   }
