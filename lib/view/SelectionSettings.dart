@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:fmr/model/Thematique.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class SelectionSettings extends StatefulWidget {
@@ -12,14 +13,8 @@ class SelectionSettings extends StatefulWidget {
 }
 
 class _SelectionSettingsState extends State<SelectionSettings> {
-  late List<bool> _isChecked;
-  List<String> themes =["Amour", "Animaux", "Amour", "Geek"];
-  @override
-  void initState() {
-    super.initState();
-    _isChecked = List<bool>.filled(themes.length, false);
-  }
-
+  List<Thematique> thematiques = Thematique.getThematiquesStates();
+  List<String> selectedThemes = [];
   @override
   Widget build(BuildContext context) {
 
@@ -54,17 +49,24 @@ class _SelectionSettingsState extends State<SelectionSettings> {
               scrollDirection: Axis.vertical,
               separatorBuilder: (BuildContext context, int index) =>
               const Divider(),
-              itemCount: themes.length,
+              itemCount:  thematiques.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
                   child: CheckboxListTile(
-                    title: Text(themes[index]),
-                    value: _isChecked[index],
+                    title: Text(thematiques[index].libelle),
+                    value: thematiques[index].isCheck,
                     checkColor: HexColor("#ff8c01"),
-
                     onChanged: (value) {
                       setState(() {
-                        _isChecked[index] = value!;
+                        thematiques[index].isCheck = value!;
+                        if(thematiques[index].isCheck){
+                           selectedThemes.add(thematiques[index].libelle);
+                           print(selectedThemes.toString());
+                        }
+                        else{
+                          selectedThemes.remove(thematiques[index].libelle);
+                          print(selectedThemes.toString());
+                        }
                       });
                     },
                     secondary: _Icon[index],
