@@ -13,8 +13,11 @@ class SelectionSettings extends StatefulWidget {
 }
 
 class _SelectionSettingsState extends State<SelectionSettings> {
+
   List<Thematique> thematiques = Thematique.getThematiquesStates();
   List<String> selectedThemes = [];
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -76,7 +79,26 @@ class _SelectionSettingsState extends State<SelectionSettings> {
             ),
           ),
         ),
+        SizedBox(height: 15,),
       ],
-    );;
+    );
+  }
+}
+
+class TeamNameSelection extends StatefulWidget {
+  const TeamNameSelection({Key? key}) : super(key: key);
+
+  @override
+  State<TeamNameSelection> createState() => _TeamNameSelectionState();
+}
+
+class _TeamNameSelectionState extends State<TeamNameSelection> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextField()
+      ],
+    );
   }
 }

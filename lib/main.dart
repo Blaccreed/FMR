@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fmr/view/Butdujeu.dart';
+import 'package:fmr/view/Rules.dart';
 import 'package:fmr/view/SelectionSettings.dart';
 import 'package:fmr/view/ThemeChoice.dart';
-import 'package:fmr/view/home.dart';
+import 'package:fmr/view/Home.dart';
 import 'package:fmr/view/tableau_score.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

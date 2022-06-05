@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class Team{
 
   String name;
-  late Image avatar;
   bool win;
   int score;
 
@@ -18,10 +17,6 @@ class Team{
 
   String getNom() {
     return name;
-  }
-
-  Image getAvatar() {
-    return avatar;
   }
 
   bool getWin() {
