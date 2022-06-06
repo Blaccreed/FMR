@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import '../model/Joke.dart';
 
 class Duel extends StatefulWidget {
-  const Duel({Key? key, required this.selectedThemes, required this.game}) : super(key: key);
+  const Duel({Key? key, required this.selectedThemes}) : super(key: key);
   final List<String> selectedThemes;
 
   @override
