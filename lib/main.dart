@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fmr/view/Rules.dart';
-import 'package:fmr/view/SelectionSettings.dart';
-import 'package:fmr/view/ThemeChoice.dart';
 import 'package:fmr/view/Home.dart';
-import 'package:fmr/view/tableau_score.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'model/Joke.dart';
 
 Future<void> main() async {
 
   runApp(const MyApp());
-
+  List<String> selectedThemes = ["AM", "AB"];
+  Future<List<String>> jokes = Joke.test(selectedThemes[0]);
+  print(jokes);
 }
-
-
-
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: HexColor("#0000ff"),
-        body: const SelectionSettings(),
+        body: const Home(),
       ),
     );
   }

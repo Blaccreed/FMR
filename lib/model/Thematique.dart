@@ -2,28 +2,20 @@ import 'package:fmr/model/SupabaseHandler.dart';
 import 'package:supabase/supabase.dart';
 
 class Thematique {
-  String code;
-  String libelle;
+  String cd;
+  String wording;
   bool isCheck;
 
-  Thematique({required this.code, required this.libelle, required this.isCheck});
-
-  String get idTheme {
-    return code;
-  }
-
-  String get libelleTheme {
-    return libelle;
-  }
-
+  Thematique({required this.cd, required this.wording, required this.isCheck});
 
 
   static List<Thematique> getThematiquesStates(){
     return [
-      Thematique(code: "AM", libelle: "Amour", isCheck: false),
-      Thematique(code: "AN", libelle: "Animaux", isCheck: false),
-      Thematique(code: "AB", libelle: "Absurde", isCheck: false),
-      Thematique(code: "GE", libelle: "Geek", isCheck: false)
+      Thematique(cd: "BO", wording: "Bouffe", isCheck: false),
+      Thematique(cd: "AN", wording: "Animaux", isCheck: false),
+      Thematique(cd: "AB", wording: "Absurde", isCheck: false),
+      Thematique(cd: "GE", wording: "Geek", isCheck: false),
+      Thematique(cd: "VI", wording: "Ville", isCheck: false)
     ];
   }
 

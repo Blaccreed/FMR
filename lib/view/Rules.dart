@@ -43,7 +43,7 @@ class Butdujeu extends StatelessWidget {
 
 
 
-        body: Center(
+        body: const Center(
           //SizedBox Widget
           child: SizedBox(
             width: 700.0,

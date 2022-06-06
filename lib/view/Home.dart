@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fmr/view/Parameters.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class Home extends StatefulWidget {
@@ -28,8 +29,10 @@ class _HomeState extends State<Home> {
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(primary: HexColor("#ff8c01")),
-          onPressed: () {},
-          child: Text("Jouer !"),
+          onPressed: () {
+            Navigator.push(context,  MaterialPageRoute(builder: (context) => const Parameters()));
+          },
+          child: Text("Jouer!"),
         ),
         const SizedBox(
           height: 10,
