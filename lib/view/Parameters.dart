@@ -117,12 +117,12 @@ class _ParametersState extends State<Parameters> {
           ElevatedButton(
               onPressed: () {
                 print(selectedThemes.toString());
-                Future<List<Joke>> jokes = Joke.getJokesByCode(selectedThemes);
+                Future<List<String>> jokes = Joke.test(selectedThemes);
                 print(jokes);
-               // Navigator.push(
-                //  context,
-                //  MaterialPageRoute(builder: (context) =>  Duel(selectedThemes: selectedThemes)),
-               // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  Duel(selectedThemes: selectedThemes)),
+                );
               },
               child: Text("Lancez le duel ?"))
         ],

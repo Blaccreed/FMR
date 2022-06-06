@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:fmr/view/Home.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:postgres/postgres.dart';
 
 import 'model/Joke.dart';
 
 Future<void> main() async {
 
   runApp(const MyApp());
-  List<String> selectedThemes = ["AM", "AB"];
-  Future<List<String>> jokes = Joke.test(selectedThemes[0]);
+  List<String> selectedThemes = ["GE", "AB"];
+  List<String> jokes = await Joke.test(selectedThemes);
+  print('caca');
   print(jokes);
 }
 
