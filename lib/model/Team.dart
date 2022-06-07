@@ -18,8 +18,9 @@ class Team{
     win = true;
   }
 
-  void addPoint(int point) {
+  int addPoint(int point) {
     score = score + point;
+    return score;
   }
 
 }

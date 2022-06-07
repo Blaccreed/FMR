@@ -53,7 +53,7 @@ class _DuelState extends State<Duel> {
                     children: [
                       Text(team1.name, style: const TextStyle(color: Colors.white,fontSize: 15)),
                       const SizedBox(height: 15,),
-                      Center(child: Text(team2.score.toString(), style: const TextStyle(color: Colors.white,fontSize: 40)))
+                      Center(child: Text(team1.score.toString(), style: const TextStyle(color: Colors.white,fontSize: 40)))
 
                     ],
                   ),
@@ -108,14 +108,17 @@ class _DuelState extends State<Duel> {
                             children: [
                               ElevatedButton(
                                   onPressed: () {
-                                    if(game.hisTurn == team1){
-                                      team1.addPoint(1);
-                                      game.hisTurn = team2;
-                                    }
-                                    else{
-                                      team2.addPoint(1);
-                                      game.hisTurn = team1;
-                                    }
+
+                                    setState(() {
+                                      if(game.hisTurn == team1){
+                                        team1.score = team1.addPoint(1);
+                                        game.hisTurn = team2;
+                                      }else {
+                                        team2.addPoint(1);
+                                        game.hisTurn = team1;
+                                      }
+                                    });
+
                                   },
                                   child: const Text("Il rigole !"),
                                   style: ElevatedButton.styleFrom(
@@ -125,12 +128,13 @@ class _DuelState extends State<Duel> {
                               ),
                               ElevatedButton(
                                   onPressed: () {
-                                    if(game.hisTurn == team1){
-                                      game.hisTurn = team2;
-                                    }
-                                    else{
-                                      game.hisTurn = team1;
-                                    }
+                                    setState(() {
+                                      if(game.hisTurn == team1){
+                                        game.hisTurn = team2;
+                                      }else {
+                                        game.hisTurn = team1;
+                                      }
+                                    });
                                   },
                                   child: const Text("Il ne rigole pas !"),
                                   style: ElevatedButton.styleFrom(
