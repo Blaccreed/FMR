@@ -25,7 +25,7 @@ class _DuelState extends State<Duel> {
   late Team team1 = Team(widget.team1, 10, false);
   late Team team2 = Team(widget.team2, 10, false);
   late Game game = Game(team1, team2, 10, team1);
-
+  late int i = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,8 +94,8 @@ class _DuelState extends State<Duel> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                snapshot.data[0],
-                                style: const TextStyle(color: Colors.white,fontSize: 30),
+                                snapshot.data[i],
+                                style: const TextStyle(color: Colors.white, fontSize: 30),
                               ),
                             ),
                             color: HexColor("#ff8c01"),
@@ -113,9 +113,11 @@ class _DuelState extends State<Duel> {
                                       if(game.hisTurn == team1){
                                         team1.score = team1.addPoint(1);
                                         game.hisTurn = team2;
+                                        i = i + 1;
                                       }else {
                                         team2.addPoint(1);
                                         game.hisTurn = team1;
+                                        i = i + 1;
                                       }
                                     });
 
@@ -131,8 +133,10 @@ class _DuelState extends State<Duel> {
                                     setState(() {
                                       if(game.hisTurn == team1){
                                         game.hisTurn = team2;
+                                         i = i + 1;
                                       }else {
                                         game.hisTurn = team1;
+                                        i = i + 1;
                                       }
                                     });
                                   },
