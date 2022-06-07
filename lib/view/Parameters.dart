@@ -18,6 +18,7 @@ class _ParametersState extends State<Parameters> {
   List<String> selectedThemes = [];
   final firstTeamController = TextEditingController();
   final secondTeamController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     List<Widget> _Icon = [
@@ -37,95 +38,103 @@ class _ParametersState extends State<Parameters> {
       )
     ];
 
-    return Scaffold(
-      backgroundColor: HexColor("#0000ff"),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text("Vous êtes plutôt ? ",
-              style: TextStyle(color: Colors.white, fontSize: 25)),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: HexColor("#0000ff"),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Text("Vous êtes plutôt ? ",
+                style: TextStyle(color: Colors.white, fontSize: 25)),
 
-          const SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: SizedBox(
-              width: 250,
-              child: ListView.separated(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
-                itemCount: thematiques.length,
-                itemBuilder: (BuildContext context,index) {
-                  return Card(
-                    child: CheckboxListTile(
-                      title: Text(thematiques[index].wording),
-                      value: thematiques[index].isCheck,
-                      checkColor: Colors.white,
-                      activeColor: HexColor("#ff8c01"),
-                      onChanged: (value) {
-                        setState(() {
-                          thematiques[index].isCheck = value!;
-                          if (thematiques[index].isCheck) {
-                            selectedThemes.add(thematiques[index].cd);
-                            print(selectedThemes.toString());
-                          } else {
-                            selectedThemes.remove(thematiques[index].cd);
-                            print(selectedThemes.toString());
-                          }
-                        });
-                      },
-                      secondary: _Icon[index],
-                    ),
-                  );
-                },
+            const SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: SizedBox(
+                width: 250,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const Divider(),
+                  itemCount: thematiques.length,
+                  itemBuilder: (BuildContext context,index) {
+                    return Card(
+                      child: CheckboxListTile(
+                        title: Text(thematiques[index].wording),
+                        value: thematiques[index].isCheck,
+                        checkColor: Colors.white,
+                        activeColor: HexColor("#ff8c01"),
+                        onChanged: (value) {
+                          setState(() {
+                            thematiques[index].isCheck = value!;
+                            if (thematiques[index].isCheck) {
+                              selectedThemes.add(thematiques[index].cd);
+                              print(selectedThemes.toString());
+                            } else {
+                              selectedThemes.remove(thematiques[index].cd);
+                              print(selectedThemes.toString());
+                            }
+                          });
+                        },
+                        secondary: _Icon[index],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-
-          TextField(
-            style: const TextStyle(
-              color: Colors.white,
+            const SizedBox(
+              height: 15,
             ),
-            decoration: const InputDecoration(
-              label: Text("Nom de la première équipe"),
-              border: OutlineInputBorder(),
-            ),
-            controller: firstTeamController,
-          ),
 
-          const SizedBox(
-            height: 10,
-          ),
-
-          //Nom de l'équipe 2
-          TextField(
-            style: const TextStyle(
-              color: Colors.white,
+            SizedBox(
+              width: 220,
+              child: TextField(
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+                decoration: const InputDecoration(
+                  label: Text("Nom de la première équipe"),
+                  border: OutlineInputBorder(),
+                ),
+                controller: firstTeamController,
+              ),
             ),
-            decoration: const InputDecoration(
-              label: Text("Nom de la deuxième équipe"),
-              border: OutlineInputBorder(),
-            ),
-            controller: secondTeamController,
-          ),
 
-          ElevatedButton(
-              onPressed: () {
-                print(selectedThemes.toString());
-                Future<List<String>> jokes = Joke.test(selectedThemes);
-                print(jokes);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  Duel(selectedThemes: selectedThemes)),
-                );
-              },
-              child: Text("Lancez le duel ?"))
-        ],
+            const SizedBox(
+              height: 10,
+            ),
+
+            //Nom de l'équipe 2
+            SizedBox(
+              width: 220,
+              child: TextField(
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+                decoration: const InputDecoration(
+                  label: Text("Nom de la deuxième équipe"),
+                  border: OutlineInputBorder(),
+                ),
+                controller: secondTeamController,
+              ),
+            ),
+
+            ElevatedButton(
+                onPressed: () {
+                  print(selectedThemes.toString());
+                  Future<List<String>> jokes = Joke.test(selectedThemes);
+                  print(jokes);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  Duel(selectedThemes: selectedThemes, team1: firstTeamController.text, team2: secondTeamController.text,)),
+                  );
+                },
+                child: Text("Lancez le duel ?"))
+          ],
+        ),
       ),
     );
   }

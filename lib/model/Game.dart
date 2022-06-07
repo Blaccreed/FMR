@@ -4,9 +4,10 @@ class Game {
   Team team1;
   Team team2;
   int maxPoint;
+  Team hisTurn;
   List<String> jokes = [];
 
-  Game(this.team1, this.team2, this.maxPoint);
+  Game(this.team1, this.team2, this.maxPoint, this.hisTurn);
 
 
   Team getTeam1(){
