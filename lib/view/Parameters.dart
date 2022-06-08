@@ -40,6 +40,7 @@ class _ParametersState extends State<Parameters> {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: HexColor("#0000ff"),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
