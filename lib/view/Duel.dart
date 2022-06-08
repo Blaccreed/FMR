@@ -95,13 +95,13 @@ class _DuelState extends State<Duel> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 snapshot.data[i],
-                                style: const TextStyle(color: Colors.white, fontSize: 30),
+                                style: const TextStyle(color: Colors.white, fontSize: 25),
                               ),
                             ),
                             color: HexColor("#ff8c01"),
                           ),
                           const SizedBox(
-                            height: 15,
+                            height: 20,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -131,14 +131,19 @@ class _DuelState extends State<Duel> {
                               ElevatedButton(
                                   onPressed: () {
                                     setState(() {
-                                      if(game.hisTurn == team1){
-                                        game.hisTurn = team2;
-                                         i = i + 1;
-                                      }else {
-                                        game.hisTurn = team1;
-                                        i = i + 1;
+                                      while (team1.score < game.maxPoint ||
+                                          team2.score < game.maxPoint) {
+                                        if (game.hisTurn == team1) {
+                                          game.hisTurn = team2;
+                                          i = i + 1;
+                                        } else {
+                                          game.hisTurn = team1;
+                                          i = i + 1;
+                                        }
                                       }
-                                    });
+
+                                    }
+                                    );
                                   },
                                   child: const Text("Il ne rigole pas !"),
                                   style: ElevatedButton.styleFrom(
